@@ -17,7 +17,11 @@ exports.getUsuarios = async (req, res) => {
 exports.getUserId = async (req, res) => {
   try {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT id FROM Usuarios");
+    const{id} = req.body
+
+    const result = await pool.request()
+    .input("id", sql.Int, id)
+    .query("SELECT id FROM Usuarios");
 
     res.json(result.recordset);
   } catch (error) {

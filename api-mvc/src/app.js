@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-
 const usuariosRoutes = require("./routes/usuariosRoutes");
 
 //  http://localhost:3000/
